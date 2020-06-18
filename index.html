@@ -1,0 +1,136 @@
+<html>
+    <head>
+        <title>
+            Piggyvest Calculator
+        </title>
+       <!-- Bootstrap -->
+  <link href="assets/bootstrap/bootstrap.min.css" rel="stylesheet">
+
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/custom-style.css">
+
+    </head>
+
+      <body>
+       <div class="container">
+          <nav>
+            <a href="#">
+              <img src="assets/images/piggy-png_1_.png" class="logo-alt" alt="">
+            </a>
+            <img class="harm" src="assets/images/menu.png">
+            <ul class="menu _no-show">
+              <li class="menu-list">
+                <a href="#" class="menu-link">About</a>
+              </li>
+              <li class="menu-list">
+                <a href="#" class="menu-link">Stories</a>
+              </li>
+              <li class="menu-list">
+                <a href="#" class="menu-link">FAQ</a>
+              </li>
+              <li class="menu-list">
+                <a href="#" target="_blank" class="menu-link">Blog</a>
+              </li>
+              <li class="menu-list">
+                <a href="#" class="menu-link">Log In</a>
+              </li>
+              <li class="menu-list">
+                <a href="#" class="menu-link signup-btn p-3 mb-2 bg-primary text-white">Create a Free Account</a>
+              </li>
+            </ul>
+          </nav>
+        
+    <section class="buy-pro" style="padding: 50px 0;">
+		<div class="row">
+			<div class="col-md-8 mx-auto">
+				<div class="pro-block text-center" style="padding: 40px 50px; background: white; box-shadow: 0px 2px 28px 0px #7777775e; border-radius: 5px;">
+					<h1 style="font-size: 25px; line-height: 1; font-weight: 600; padding: 10px 0 15px 0; color: #144499;">Piggy Bank Calculator</h1>
+					
+					<label for="Amount"  style="display: block; text-align: left;">How much do you plan on saving:</label>
+                         <input type="number" id="Amount" class="alert alert-info border border-primary" style="display: block; width: 100%;" placeholder="Amount here">
+                    <label for="Interval" style="display: block; text-align: left;">Select Interval:</label>
+                         <select name="interval" id="interval" class=" alert alert-info border border-primary"  style="display: block; width: 100%;">
+                            <option value="Daily">Select Interval</option>
+                            <option value="Daily">Daily</option>
+                             <option value="Weekly">Weekly</option>
+                            <option value="Monthly">Monthly</option>
+                            <option value="Yearly">Yearly</option>
+                        </select>
+                     <div id="hiddenMonths" style="display: none;">
+                        <label for="Month" style="display: block; text-align: left;">Select the month:</label>
+                        <select name="month" id="month"  class= " alert alert-info border border-primary" style="display: block; width: 100%;" st>
+                        <option value="">Select Month</option>
+                        <option value="January">January</option>
+                        <option value="Febuary">Febuary</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                </select>
+                     </div>
+                 <div id="hiddenDays" style="display: none;">
+                 <label for="daysDuration" style="display: block; text-align: left; ">Select how long you will save this:</label>
+                         <select name="daysDuration" id="daysDuration" class=" alert alert-info border border-primary"  style="display: block; width: 100%;">
+                         <option value="">Select Duration</option>
+                         <option value="1">1</option>
+                         <option value="2">2</option>
+                         <option value="3">3</option>
+                         <option value="4">4</option>
+                         <option value="5">5</option>
+                         <option value="6">6</option>
+                         <option value="7">7</option>
+                         <option value="8">8</option>
+                         <option value="9">9</option>
+                         <option value="10">10</option>
+                         <option value="11">11</option>
+                         <option value="12">12</option>
+                         <option value="13">13</option>
+                         <option value="14">14</option> 
+                         <option value="15">15</option>
+                         <option value="16">16</option>
+                         <option value="17">17</option> 
+                         <option value="18">18</option>
+                         <option value="19">19</option>
+                         <option value="20">20</option>
+                         <option value="21">21</option>
+                         <option value="22">22</option>
+                         <option value="23">23</option>
+                         <option value="24">24</option>
+                         <option value="25">25</option>
+                         <option value="26">26</option>
+                         <option value="27">27</option>
+                         <option value="28">28</option>
+                         <option value="29">29</option>
+                         <option value="30">30</option>
+                         <option value="31">31</option>
+                 </select>
+                </div>
+                 <div id="hiddenWeeks" style="display: none;">
+                    <label for="weekDuration" class= "weekDuration" id="hidden_div3" style="display: block; text-align: left;">Select how long you will save this:</label>
+                    <select name="weekDuration" id="weekDuration" class=" alert alert-info border border-primary" style="display: block; width: 100%;">
+                    <option value="">Select Duration</option>
+                    <option value="1">1 week </option>
+                    <option value="2">2 weeks </option>
+                    <option value="3">3 weeks </option>
+                    <option value="4">4 weeks</option>
+                    </select>
+                 </div>
+                  <button id="calcButton"  class="btn btn-primary btn-lg" style="margin: 20px; padding:10px 20px;">Calculate interest</button>
+                  <h3 style="padding: 20px 0 15px 0; color: #144499">INTEREST</h3>
+                  <p class="result" style="color: black; font-size: larger;"> </p>
+				</div>
+			</div>
+		</div>
+    </div>         
+    </section>
+</div>
+<script src="assets/js/script.js"></script>
+</body>
+</html>
