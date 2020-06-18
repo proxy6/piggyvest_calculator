@@ -7,9 +7,11 @@ let daysDuration = document.querySelector("#daysDuration");
 let weekDuration = document.querySelector("#weekDuration");
 let display1 = document.querySelector(".hidden_1")
 let earned = document.querySelector(".earned")
+let reset = document.querySelector("#reset");
+let years = document.querySelector("#years")
 
 
-let dailyPercentage = 0.000274
+let dailyPercentage = 0.000274;
 let calcAmount = "";
 let calcInterval = "";
 let calcMonth = "";
@@ -21,6 +23,8 @@ let totalEarned = "";
 let dailyInterest= "";
 let weeklyInterest= "";
 let monthlyInterest ="";
+let selected_years
+let resetResult = 0.00;
 
 //add event listeners to the input and select tags
 
@@ -64,6 +68,13 @@ weekDuration.addEventListener("change", function(){
     
 })
 
+years.addEventListener("change", function(){
+    selected_years = Number(this.value);
+})
+reset.addEventListener("click", function(){
+    resetButton();
+})
+
     
 
 //program flow
@@ -77,9 +88,7 @@ calcButton.addEventListener("click", function(){
 
       document.querySelector(".result").textContent =  dailyInterest.toFixed(2);
       document.querySelector(".earned").textContent = totalEarned.toFixed(2);
-      console.log(dailyInterest)
-      console.log(totalEarned)
-    }
+   }
 
     // calculate for weekly 
 
@@ -107,7 +116,7 @@ calcButton.addEventListener("click", function(){
             
         }
         else{
-            year_Duration = 365 * interest();
+            year_Duration = 365 * selected_years * interest();
             totalEarned = calcAmount + year_Duration;
             document.querySelector(".result").textContent = year_Duration.toFixed(2);
             document.querySelector(".earned").textContent = totalEarned.toFixed(2);
@@ -122,6 +131,17 @@ function interest(){
        var interest = parseFloat(dailyPercentage * calcAmount);
     return interest
 
+}
+
+//reset button function
+function resetButton(){
+Interval = "";
+document.querySelector("#hiddenDays").style.display= "none";
+document.querySelector("#hiddenWeeks").style.display = "none";
+document.querySelector("#hiddenMonths").style.display = "none";
+// document.querySelector("#hiddenYears").style.display = "none";
+document.querySelector(".result").textContent = 0;
+document.querySelector(".earned").textContent = 0;
 }
 
 var months= [{
