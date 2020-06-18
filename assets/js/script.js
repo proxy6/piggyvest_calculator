@@ -6,6 +6,7 @@ let calcButton = document.querySelector("#calcButton");
 let daysDuration = document.querySelector("#daysDuration");
 let weekDuration = document.querySelector("#weekDuration");
 let display1 = document.querySelector(".hidden_1")
+let earned = document.querySelector(".earned")
 
 
 let dailyPercentage = 0.000274
@@ -16,6 +17,10 @@ let days_Duration = "";
 let week_Duration = "";
 let selected_month = "";
 let year_Duration = "";
+let totalEarned = "";
+let dailyInterest= "";
+let weeklyInterest= "";
+let monthlyInterest ="";
 
 //add event listeners to the input and select tags
 
@@ -67,16 +72,22 @@ calcButton.addEventListener("click", function(){
     //calculate for daily savings
 
        if(calcInterval === "Daily"){
-       let dailyInterest= days_Duration * interest();
+       dailyInterest= days_Duration * interest();
+       totalEarned = calcAmount + dailyInterest;
 
-      document.querySelector(".result").textContent =  "Your Interest is " + Math.round(dailyInterest) + " Naira";
+      document.querySelector(".result").textContent =  dailyInterest.toFixed(2);
+      document.querySelector(".earned").textContent = totalEarned.toFixed(2);
+      console.log(dailyInterest)
+      console.log(totalEarned)
     }
 
     // calculate for weekly 
 
     else if(calcInterval === "Weekly"){
-        let weeklyInterest = 7 * week_Duration * interest();
-        document.querySelector(".result").textContent = "Your Interest is " + Math.round(weeklyInterest) + " Naira";
+        weeklyInterest = 7 * week_Duration * interest();
+        totalEarned = calcAmount + weeklyInterest;
+        document.querySelector(".result").textContent = weeklyInterest.toFixed(2);
+        document.querySelector(".earned").textContent = totalEarned.toFixed(2);
 
     }    
     //calculate for monthly
@@ -84,10 +95,11 @@ calcButton.addEventListener("click", function(){
     else if(calcInterval === "Monthly"){
             for(var i=0; i<months.length; i++){
                 if(months[i].id === calcMonth){
-                    let monthlyInterest = Number(months[i].max_days) * interest();
-                    console.log(monthlyInterest);
+                    monthlyInterest = Number(months[i].max_days) * interest();
+                    totalEarned = calcAmount + monthlyInterest;
                     
-                    document.querySelector(".result").textContent = "Your Interest is " + Math.round(monthlyInterest) + " Naira";
+                    document.querySelector(".result").textContent = monthlyInterest.toFixed(2);
+                    document.querySelector(".earned").textContent = totalEarned.toFixed(2);
                 }
             
             }
@@ -96,7 +108,9 @@ calcButton.addEventListener("click", function(){
         }
         else{
             year_Duration = 365 * interest();
-            document.querySelector(".result").textContent = "Your Interest is " + Math.round(year_Duration) + " Naira";
+            totalEarned = calcAmount + year_Duration;
+            document.querySelector(".result").textContent = year_Duration.toFixed(2);
+            document.querySelector(".earned").textContent = totalEarned.toFixed(2);
         }
       
    })
@@ -105,7 +119,7 @@ calcButton.addEventListener("click", function(){
 
 //function to calculate interest
 function interest(){
-   var interest = dailyPercentage * calcAmount;
+       var interest = parseFloat(dailyPercentage * calcAmount);
     return interest
 
 }
